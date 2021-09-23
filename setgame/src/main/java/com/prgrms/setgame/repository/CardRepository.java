@@ -18,4 +18,6 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     @Query(value = "SELECT * FROM cards WHERE is_used = FALSE ORDER BY RAND() LIMIT 3", nativeQuery = true)
     List<Card> addCards();
 
+    @Query(value = "SELECT * FROM cards WHERE is_used = TRUE", nativeQuery = true)
+    List<Card> findByIsUsed();
 }
