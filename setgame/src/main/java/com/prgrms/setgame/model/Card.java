@@ -1,11 +1,12 @@
 package com.prgrms.setgame.model;
 
-import org.hibernate.annotations.Type;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Cards")
+@Getter
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
