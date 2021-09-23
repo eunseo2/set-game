@@ -36,4 +36,15 @@ public class SimpleBoardService implements BoardService {
         return boardRepository.findAll();
     }
 
+    @Override
+    public List<Board> addBoards() {
+        cardRepository.addCards().forEach(card -> {
+            boardRepository.save(new Board(card));
+            card.setIsUsed(Boolean.TRUE);
+            cardRepository.save(card);
+        });
+
+        return boardRepository.findAll();
+    }
+
 }

@@ -22,4 +22,9 @@ public class BoardRestController {
         return boardService.boards();
     }
 
+    @GetMapping("/add")
+    public List<Board> addBoardList() {
+        return boardService.addBoards();
+    }
+
 }
