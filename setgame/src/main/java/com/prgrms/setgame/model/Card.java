@@ -22,7 +22,7 @@ public class Card {
     private String shape;
 
     @Column
-    private Long number;
+    private String number;
 
     @Column
     private String shade;
