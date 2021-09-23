@@ -8,4 +8,6 @@ public interface BoardService {
     List<Board> boards();
 
     List<Board> addBoards();
+
+    List<Board> findAll();
 }

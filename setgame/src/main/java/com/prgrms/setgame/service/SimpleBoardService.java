@@ -47,4 +47,9 @@ public class SimpleBoardService implements BoardService {
         return boardRepository.findAll();
     }
 
+    @Override
+    public List<Board> findAll() {
+        return boardRepository.findAll();
+    }
+
 }
