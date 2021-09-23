@@ -19,4 +19,9 @@ public class SimpleCardService implements CardService {
         return cardRepository.cards();
     }
 
+    @Override
+    public List<Card> addCards() {
+        return cardRepository.addCards();
+    }
+
 }

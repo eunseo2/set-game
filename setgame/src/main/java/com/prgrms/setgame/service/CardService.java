@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CardService {
     List<Card> cards();
+
+    List<Card> addCards();
 }

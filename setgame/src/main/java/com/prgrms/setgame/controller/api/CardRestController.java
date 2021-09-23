@@ -21,4 +21,9 @@ public class CardRestController {
     public List<Card> cardList() {
         return cardService.cards();
     }
+
+    @GetMapping("/add")
+    public List<Card> addCardList() {
+        return cardService.addCards();
+    }
 }
