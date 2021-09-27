@@ -72,25 +72,6 @@
 <br>
 <div class="container">
     <h1 class="title">SET <small>(game)</small></h1>
-    <script>
-        var time = 300;
-        var min = "";
-        var sec = "";
-
-        var x = setInterval(function () {
-            min = parseInt(time / 60);
-            sec = time % 60;
-
-            document.getElementById("demo").innerHTML = min + "분" + sec + "초";
-            time--;
-
-            if (time < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "시간초과";
-            }
-        }, 1000);
-    </script>
-    <div id="demo"></div>
     <div class="game">
         <div class="sidebar">
             <div class="options">
@@ -104,6 +85,15 @@
 </div>
 <tr th:each="board: ${boards}" th:object="${board}">
     <img th:src="*{card.image}" style="width: 300px;"></img>
+    <td>
+        <!--        <a class="btn btn-outline-danger" th:href="@{'/set/'+*{card.id}}">선택</a>-->
+        <a class="btn btn-outline-danger" th:text="선택" th:onclick="|javascript:cardId('*{card.id}')|"></a>
+        <script type="text/javascript">
+            function cardId(idx) {
+                alert(idx + "번 카드가 선택되었습니다.");
+            }
+        </script>
+    </td>
 </tr>
 </body>
 </html>
