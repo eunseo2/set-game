@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: #ddd;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 4em;
+            font-weight: 900;
+            margin-top: -0.4em;
+
+        small {
+            color: #aaa;
+            font-size: .3em;
+            font-weight: 500;
+            margin-left: -1em;
+        }
+
+        }
+
+        .game {
+            display: flex;
+            margin: 0 auto;
+            padding: 0 10px;
+            justify-content: center;
+            align-items: flex-start;
+
+        @media screen and (max-width: 650px) {
+            flex-direction: column
+
+        ;
+            align-items: center
+
+        ;
+            justify-content: flex-start
+
+        ;
+        }
+
+        }
+        .sidebar {
+            display: flex;
+            flex-flow: column wrap;
+        / / overflow-y: scroll;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+    </style>
+    <title>Set Game</title>
+</head>
+<body class="container-fluid">
+<br>
+<br>
+<div class="container">
+    <h1 class="title">SET <small>(game)</small></h1>
+    <div class="game">
+        <div class="sidebar">
+            <div class="options">
+                <br>
+                <a th:href="@{/game}" class="btn btn-primary me-md-2 " type="button">Restart</a>
+                <a th:href="@{/boards/add}" class="btn btn-secondary me-md-2" type="button">+3 cards</a>
+                <a th:href="@{/set}" class="btn btn-danger" type="button">Set</a>
+            </div>
+        </div>
+    </div>
+</div>
+<tr th:each="board: ${boards}" th:object="${board}">
+    <img th:src="*{card.image}" style="width: 300px;"></img>
+    <td>
+        <!--        <a class="btn btn-outline-danger" th:href="@{'/set/'+*{card.id}}">선택</a>-->
+        <a class="btn btn-outline-danger" th:text="선택" th:onclick="|javascript:cardId('*{card.id}')|"></a>
+        <script type="text/javascript">
+            function cardId(idx) {
+                alert(idx + "번 카드가 선택되었습니다.");
+            }
+        </script>
+    </td>
+</tr>
+</body>
+</html>
